@@ -1,0 +1,152 @@
+<!-- 
+localStorage
+localStorage.resources
+window.applicationCache
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:fb="https://www.facebook.com/2008/fbml" itemscope itemtype="http://schema.org/Article">
+<!--
+manifest="<%=asset_path("/cache.manifest")%>"  
+-->
+<head>
+	<title>Boa Vontade</title>
+	<meta name="description" content="Acompanhe a SuperRBV e a BoaVontadeTV em qualquer lugar com AppBoaVontade" />
+	<meta property="og:title" content="AppBoaVontade" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://app.boavontade.com" />
+	<meta property="og:image" content='<%=asset_path("/assets/logo.png")%>' />
+	<meta property="og:description" content="Acompanhe a SuperRBV e a BoaVontadeTV em qualquer lugar com AppBoaVontade" />
+	<meta property="og:site_name" content="AppBoaVontade" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+	<meta name="apple-touch-fullscreen" content="no"/>
+	<meta name="apple-mobile-web-app-capable" content="no" />
+
+	<link rel="shortcut icon" href='<%=asset_path("favicon.ico")%>' />
+	<link rel="apple-touch-icon-precomposed" href='<%=asset_path("/assets/logo.png")%>' />
+	<link rel="apple-touch-startup-image" href='<%=asset_path("/assets/iphone_splash.png")%>' />
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag 'application' -%>
+	<script type="text/javascript" src="http://zeptojs.com/zepto.min.js"></script>
+	<!-- ********************* Sharethis ********************* -->
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript">stLight.options({publisher: "ur-228547c6-8b73-74b2-1d45-5cb358fbc09e", popup: 'true'});</script>
+	<!-- ********************* end Sharethis ********************* -->
+
+	<!-- JqueryMobile 1.2.0 é baseado em CSS3 e o FIREFOX ainda não implementa essa especificação -->
+	<%# if request.env["HTTP_USER_AGENT"].downcase.include?('firefox') 
+			concat javascript_include_tag 'jquery.mobile-1.0.1.min.js'
+		else
+			concat javascript_include_tag 'jquery.mobile-1.2.0.min.js'
+		end
+	%>
+	<%if request.env["HTTP_USER_AGENT"].downcase.include?('safari') and !request.env["HTTP_USER_AGENT"].downcase.include?('chrome')%>
+		<style>ul.grade li:nth-child(even){height: 43px !important;}</style>
+	<%end%>
+	<script type="text/javascript">
+		/* ********************* Analytcs ********************* */
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-35975248-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; 
+	    s.parentNode.insertBefore(ga, s);
+	  })();
+	  /* ********************* end Analytcs ********************* */
+	</script>	
+	<%= csrf_meta_tags %>
+</head> 
+<body>
+	<!-- ********************* FaceBook Developers ********************* -->
+	<div id="fb-root"></div>
+	<script>
+	$(document).bind('fbInit',function(){
+  	console.log('fbInit complete; FB Object is Available');
+	});
+	$(document).ready(function(e) {
+	  window.fbAsyncInit = function() {
+	    // init the FB JS SDK
+	    FB.init({
+	      appId      : '167053196775836', // App ID from the App Dashboard
+	      //channelUrl : '//agile-springs-7079.herokuapp.com/', // Channel File for x-domain communication
+	      status     : true, // check the login status upon init?
+	      cookie     : true, // set sessions cookies to allow your server to access the session?
+	      xfbml      : true,  // parse XFBML tags on this page?
+	      oauth      : true 
+	    });
+			setTimeout(function(){fb_login()}, 5000);
+	  };
+	  // Load the SDK's source Asynchronously
+	  // Note that the debug version is being actively developed and might 
+	  // contain some type checks that are overly strict. 
+	  // Please report such bugs using the bugs tool.
+	  (function(d, debug){
+	     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement('script'); js.id = id; js.async = true;
+	     js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+	     ref.parentNode.insertBefore(js, ref);
+	   }(document, /*debug*/ false));
+			/*
+			(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+			*/
+	});			
+	</script>
+	<!-- ********************* end FaceBook Developers ********************* -->	
+	<!-- ********************* Google Tag Manager ********************* -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-69TQ"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-69TQ');</script>
+	<!-- ********************* End Google Tag Manager *********************  -->
+	<div class="mobile_menu_modal animate" style='overflow: hidden;'>
+		<div class="mobile_menu_modal animate" style="overflow: hidden; display: block; margin-left: 70px;z-index: 11003;" onclick="show_menu_modal(false);"></div>
+		<nav id="mobile_menu">
+			<ul style='padding-right: 6px;'>
+				<li>
+					<a href="/#ouvir" rel="external" data-transition="slide" onclick="show_menu_modal(false);">
+						<%= image_tag 'profile/ouvir.png', :style=>"width:58px;opacity:0.38;", :id=>'nav_ouvir'-%>
+					</a>
+				</li>
+				<li>
+					<a href="/#tvaovivo" rel="external" data-transition="slide" onclick="show_menu_modal(false);">
+						<%= image_tag 'profile/assistir.png', :style=>"width:58px;opacity:0.38;", :id=>'nav_assistir'-%>
+					</a>
+				</li>
+				<li>
+					<a href="/#portal" rel="external" data-transition="slide" onclick="show_menu_modal(false);">
+						<%= image_tag 'profile/navegar.png', :style=>"width:58px;opacity:0.38;", :id=>'nav_navegar'-%>
+					</a>
+				</li>
+			</ul>		
+			<ul style='bottom: 40px; position: absolute; left: 20px;'>
+			<!-- <p style=' bottom: 20px;position: absolute; text-align: center;width:70px;left: -3px;'> -->
+				<li>
+					<a onclick="show_menu_modal(false);" href="/#sobre" rel="external" id='btn_sobre'></a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<div style="width:51px;z-index:50000;height: 41px; position: absolute;" data-role="header" class="ui-header ui-bar-x" role="banner">
+		<%= link_to "javascript:show_menu_modal();", :class=>"ui-btn-left ui-btn ui-btn-icon-notext ui-btn-corner-all ui-shadow ui-btn-up-x", :style=>'height: 28px;left: 4px;top: 7px;' do-%>
+			<span class="ui-btn-inner ui-btn-corner-all" style='top: 2px;'>
+				<span class="ui-btn-text"></span>
+				<span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+			</span>
+		<%end-%>
+	</div>	
+	<%= yield %>
+</body>
+</html>

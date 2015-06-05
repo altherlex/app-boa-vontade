@@ -1,0 +1,64 @@
+<%= tv_body({:id => 'tvup', :titulo => 'Boa Vontade TV', :iLink=> 'http://174.37.200.35:1935/755/755/playlist.m3u8', :link=>'http://www.crosshost.com.br/flashvideo/755' }) %>
+<%= tv_body({:id => 'tvdown', :titulo => 'Boa Vontade TV', :iLink=> 'http://174.37.200.35:1935/755/lbv/playlist.m3u8', :link=>'http://www.crosshost.com.br/flashvideo/7550' }) %>
+<% gerar_xml_programacao_tv %>
+<div data-role="page" id="tvaovivo" data-title="Boa Vontade TV" data-theme="d" data-menu-active='nav_assistir'>
+	<div data-role="content">
+		<div data-role="header" role="banner" data-theme="x">
+			<h1 class="ui-title" tabindex="0" role="heading" aria-level="1">
+				<%= image_tag 'profile/logo_boavontadetv.png'%>
+			</h1>
+		</div>	
+		<div class="ui-btn-left">
+			<%=image_tag 'fb_assitindo.png', :onclick=>"fb_check_assistindo();" -%>
+			<h3 class='ui-title' style='margin: 0.8em 0;font-size: 12px;'>No ar: <%= nme_programa_tv_corrente_tag %></h3>
+		</div>
+		<ul data-role="listview" data-inset="true" data-filter="false">
+			<li><a href="#tvdown" rel="external"><h3>Assistir (100 kbps)</h3><p>Recomendado para conexão 3G</p></a></li>
+			<li><a href="#tvup" rel="external"><h3>Assistir (256 kbps)</h3><p>Recomendado para banda larga</p></a></li>
+			<li><a href="#programacaotv" rel="external"><h3>Programação</h3><p>Acompanhe o guia com a programação da TV</p></a></li>
+			<li><a href="#sinopsetv" rel="external"><h3>Programas</h3><p>Conheça os programas</p></a></li>
+			<li><a href="#videos_boa_vontade_tv" rel="external"><h3>Videos</h3><p>Assista aos programas</p></a></li>
+		</ul>
+	</div>
+</div>
+
+<%= render :partial => "home/videos.html", :locals => { :params => {:id=>'videos_boa_vontade_tv', :titulo=>'Boa Vontade TV', :canais=>['BOAVONTADETV']}} %>
+
+<div data-role="page" id="sinopsetv" data-title="Programas" data-menu-active='nav_assistir' data-theme="d">
+	<%= header_tag(:voltar=>true){"<h1>Programas</h1>"}%>
+	<%= hidden_field_tag(:ver_videos_de, nil ) %>
+	<div data-role="content">
+		<ul data-role="listview" data-filter="true" data-theme="x">
+			<% gerar_arr_programas_tv.each do |programa| %>
+				<li style='border-bottom: 1px solid silver;'>
+					<%= image_tag programa[:icone].to_s, :style=>'margin: 0.6em;'-%>
+					<h3 style='white-space: normal;'><%= programa[:nome] -%></h3>
+					<p style='white-space: normal;'><%= programa[:descricao].html_safe -%></p>
+					<i data-role="button" data-mini="true" data-theme="d" style='font-size: 10px;' onclick="$(function(){$('#ver_videos_de').val(escape('<%=programa[:nome]-%>'));window.location.href='#videos_boa_vontade_tv?programa'})">Vídeos relacionado</i>
+					<span style='display:none'><%=programa[:nome].fonetica.downcase.gsub(' ', '')%></span>
+				</li>
+			<%end%>
+		</ul>		
+	</div>
+	<script>
+	$('#sinopsetv').live('pageshow', function() { 
+		if (document.URL.split('?').length >= 2)
+			$(this).find('[data-type="search"]:visible').val( location.href.split('?')[1].split('p=')[1] ).keyup();
+	});
+	</script>
+</div>
+
+<div data-role="page" id="programacaotv" data-title="Programa&ccedil;&atilde;o"  data-menu-active='nav_assistir' data-theme="d">
+	<%= header_tag(:voltar=>'#tvaovivo'){"<h1>Programa&ccedil;&atilde;o</h1>"}%>
+	<div data-role="content">
+		<ul data-role="listview" data-inset="true" data-filter="false">
+			<li><a href="#P1" rel="external">Domingo</a></li>
+			<li><a href="#P2" rel="external">Segunda-feira</a></li>
+			<li><a href="#P3" rel="external">Ter&ccedil;a-feira</a></li>
+			<li><a href="#P4" rel="external">Quarta-feira</a></li>
+			<li><a href="#P5" rel="external">Quinta-feira</a></li>
+			<li><a href="#P6" rel="external">Sexta-feira</a></li>
+			<li><a href="#P7" rel="external">S&aacute;bado</a></li>
+		</ul>		
+	</div>
+</div>

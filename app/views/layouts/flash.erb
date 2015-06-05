@@ -1,0 +1,15 @@
+<div style="min-height: 31px;height:auto;" role="banner" data-role="header" data-theme="<%=local_assigns[:style]%>" class="notificacao-<%=local_assigns[:style]%> ui-header ui-bar-<%=local_assigns[:style]%>">
+	<h1 style="margin: 0.8em 0pt; font-size: 12px;" class="ui-title" tabindex="0" role="heading" aria-level="1">
+		<%= local_assigns[:m] %>
+	</h1>
+</div>
+<script>
+<% if local_assigns[:sucesso] == true %>
+	fn_limpar_campos_com_label();
+<%end%>
+setTimeout(scrollTo, 0, 0, 1);
+$('[data-role="page"]').live('pagehide', function() {
+	$('#notificacao').children().remove()
+	fn_limpar_campos_com_label();
+});	
+</script>

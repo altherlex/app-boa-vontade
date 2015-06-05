@@ -1,0 +1,23 @@
+<div data-role="page" id="main">
+	<%= header_tag({:voltar=>true, :cabecalho=>true}){ "<h1>Igreja mais pr&oacute;xima</h1>"} -%>
+	<div data-role="content">
+		<ul data-role="listview" data-theme="c">
+			<%CrmIgreja.find(:all, :conditions => ['dsc_localidade = ?',params[:dsc_localidade]]).each do |igreja| %>
+				<li>
+					<%= link_to(
+						"<h3>#{igreja.dsc_bairro}</h3>
+						<p>#{igreja.local}</p>", localizacao_path(igreja), {:rel=>"external"}) -%>
+				</li>
+			<%end-%>
+		</ul>
+	</div>
+	<div data-role="navigation">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" class="ui-btn-active">Mostrar lista</a></li>
+				<li><a href="#">Mostrar mapa</a></li>
+			</ul>
+		</div>
+	</div>
+	<%=rodape%>
+</div>	

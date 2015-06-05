@@ -1,0 +1,59 @@
+<div data-role="page" id="Home">
+	<%= header_tag(:voltar=>true){"<h1>Gallery</h1>"}%>
+	<div data-role="content">
+		<ul data-role="listview" data-inset="true" data-filter="false">
+			<li><a href="#Gallery1">Album 1</a></li>
+			<li><a href="#">Album 2</a></li>
+			<li><a href="#">Album 3</a></li>
+			<li><a href="#">Album 4</a></li>
+		</ul>
+	</div>
+	<%=rodape%>
+</div>
+
+<div data-role="page" id="Gallery1" class="gallery-page">
+	<%= header_tag(:voltar=>true, :cabecalho=>false){"<h1>29 Encontro dos Pais</h1>"}%>
+	<div data-role="content">
+		<ul class="gallery">
+			<li><a class="ui-link" href="assets/gallery/1/2230689.jpg" rel="external"><img src="images/gallery/1/2230689.jpg" alt="Image 001" /></a></li>
+			<li><a class="ui-link" href="assets/gallery/1/2230698.jpg" rel="external"><img src="images/gallery/1/2230698.jpg" alt="Image 002" /></a></li>
+			<li><a class="ui-link" href="assets/gallery/1/2230704.jpg" rel="external"><img src="images/gallery/1/2230704.jpg" alt="Image 003" /></a></li>
+			<li><a class="ui-link" href="assets/gallery/1/2230715.jpg" rel="external"><img src="images/gallery/1/2230715.jpg" alt="Image 004" /></a></li>
+			<li><a class="ui-link" href="assets/gallery/1/2230732.jpg" rel="external"><img src="images/gallery/1/2230732.jpg" alt="Image 005" /></a></li>
+		</ul>
+	</div>
+	<%=rodape%>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	/*
+	(function(window, $, PhotoSwipe){
+		$(document).ready(function(){
+			$('div.gallery-page')
+				.live('pageshow', function(e){
+					var 
+						currentPage = $(e.target),
+						options = {},
+						photoSwipeInstance = $("ul.gallery a", e.target).photoSwipe(options,  currentPage.attr('id'));
+					return true;
+				})
+				
+				.live('pagehide', function(e){
+					var 
+						currentPage = $(e.target),
+						photoSwipeInstance = PhotoSwipe.getInstance(currentPage.attr('id'));
+
+					if (typeof photoSwipeInstance != "undefined" && photoSwipeInstance != null) {
+						PhotoSwipe.detatch(photoSwipeInstance);
+					}
+					return true;
+				});
+		});
+	
+	}(window, window.jQuery, window.Code.PhotoSwipe));
+	*/
+	
+	var myPhotoSwipe = $("#Gallery a").photoSwipe({ enableMouseWheel: false , enableKeyboard: false });
+});
+</script>	

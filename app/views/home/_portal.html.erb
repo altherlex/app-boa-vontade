@@ -1,0 +1,162 @@
+<style>
+div#conteudoTxt {
+color:#000;
+font-family:trebuchet ms;
+font-size:14px;
+text-align:left;
+}
+p#titulo {
+color:#4B96AD;
+float:left;
+font-family:trebuchet ms;
+font-size:36px;
+font-weight:bold;
+margin:10px 0 0;
+text-align:center;
+width:560px;
+}
+p#autor {
+color:#3F3F3F;
+float:left;
+font-family:trebuchet ms;
+font-size:13px;
+font-weight:bold;
+margin-top:5px;
+text-align:right;
+width:560px;
+}
+p#texto {
+margin:25px 0 0;
+}
+div.left_ {
+float:left;
+}
+div.foto {
+float:left;
+height:auto;
+margin:10px 25px 10px 0px;
+padding:0;
+width:auto;
+}
+div.foto ul li {
+color:#000000;
+float:left;
+font-size:11px;
+margin:0;
+padding:0;
+}
+div#blocoRight h2 {
+color:#184073;
+font-size:14px;
+margin-left:20px;
+text-align:left;
+}
+div.right {
+float:right;
+}
+ul, li {
+	list-style: none outside none;
+}
+p.subtitulo_pn {
+    font-size: 14px;
+    font-style: oblique;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+</style>
+<div data-role="page" id="portal" data-title="Portal Boa Vontade" data-theme="d" data-menu-active='nav_navegar'>
+	<div data-role="content">
+		<div data-role="header" role="banner" data-theme="x">
+			<h1 class="ui-title" tabindex="0" role="heading" aria-level="1">
+				<%= image_tag 'profile/logo_boavontadedotcom.png', :style=>'width: 140px;'%>
+			</h1>
+		</div>	
+		<ul data-role="listview" data-inset="true" data-filter="false">
+			<li>
+				<a href="#artigos_paiva_netto"><h3>Leia Paiva Netto</h3></a>
+			</li>			
+			<li>
+				<!-- <a href="#video_paiva_netto" rel="external"><h3>Vídeos | Paiva Netto</h3></a> -->
+				<a href="#video_lbv_brasil" rel="external"><h3>Vídeos | LBV Brasil</h3></a>
+			</li>	
+			<li>
+				<a href="#musicalegionaria" rel="external"><h3>Vídeos | Música Legionária</h3></a>
+			</li>	
+			<li>
+				<a href="https://twitter.com/lbvbrasil" target="_blank" rel="external"><h3>LBV Brasil | Twitter</h3></a>
+			</li>	
+			<li>
+				<a href="https://twitter.com/religiaodedeus" target="_blank" rel="external"><h3>Religião de Deus | Twitter</h3></a>
+			</li>	
+		<!--
+			<li>
+				<a href="#" rel="external"><h3>LBV Brasil | Facebook</h3></a>
+			</li>
+			<li>
+				<a href="#" rel="external"><h3>Religião de Deus | Facebook</h3></a>
+			</li>
+		-->
+		</ul>		
+	</div>
+</div>
+<%= render :partial => "home/videos.html", :locals => { :params => {:id=>'musicalegionaria', :titulo=>'Música Legionária', :canais=>['MusicaLegionaria', 'lbvcultural']}} %>
+<%#= render :partial => "home/videos.html", :locals => { :params => {:id=>'video_paiva_netto', :titulo=>'Paiva Netto', :canais=>['JovemEcumenicoLBV']}} %>
+<%= render :partial => "home/videos.html", :locals => { :params => {:id=>'video_lbv_brasil', :titulo=>'LBV', :canais=>['lbvbrasil']}} %>
+
+<div data-role="page" id="artigos_paiva_netto" data-title="Paiva Netto" data-menu-active='nav_navegar' data-theme="d">
+	<%= header_tag(:voltar=>true){"<h1>Artigos</h1>"}%>
+	<div data-role="content">
+		<ul data-role="listview" data-filter="true" data-filter="true" class='ul_artigos' data-filter-placeholder='Busque por Título ou Jornal'>
+			<% gerar_arr_artigos[0..10].each do |artigo| %>
+				<li>
+					<a href="javascript:void(0)" onclick=enviar_para("#leitor?<%= artigo[:link].split('?')[1]-%>")>
+						<h3 style='white-space: normal;'><%=artigo[:titulo]-%></h3>
+						<p style='white-space: normal;'><%=artigo[:jornais]-%></p>
+					</a>
+				</li>
+			<%end%>
+			<li class='mostrar_mais_artigos'>
+				<a href="javascript:mostrar_mais_artigos()")><h3 style='white-space: normal;'>Carregar mais</h3></a>
+			</li>			
+			<% gerar_arr_artigos[11..-1].each do |artigo| %>
+				<li style='display:none'>
+					<a href="javascript:void(0)" onclick=enviar_para("#leitor?<%= artigo[:link].split('?')[1]-%>")>
+						<h3 style='white-space: normal;'><%=artigo[:titulo]-%></h3>
+						<p style='white-space: normal;'><%=artigo[:jornais]-%></p>
+					</a>
+				</li>
+			<%end%>			
+		</ul>		
+	</div>
+	<script>
+		function mostrar_mais_artigos(){
+			el_mais = $('.mostrar_mais_artigos');
+			$('.mostrar_mais_artigos').remove();
+			$.each($('.ul_artigos>li:not(:visible)'), function(i,v){
+				/* Mostra mais 6 artigos */
+				if (i<=6)
+					$(v).show();
+			});
+			$('.ul_artigos').append(el_mais);
+		}
+	</script>
+</div>
+<div data-role="page" id="leitor">
+	<%= header_tag(:voltar=>true){"<h1 id='titulo_artigo'>Leia Paiva Netto</h1>"}%>
+	<div data-role="content" class='ler_artigo' style='text-align: justify;'></div>
+	<script>
+		$('#leitor').live('pageshow', function(){
+			var source = location.href;
+			if (location.href.split('?').length >= 2){
+				$.getJSON('home/artigo?'+source.split('?')[1], function(data){
+					var items = [];
+					$('.ler_artigo').html(data.miolo);
+					$('.ler_artigo').prepend($('<p class="subtitulo_pn">'+data.subtitulo+'</p>'));
+					$('.ler_artigo').prepend($('<h2 style="text-align: center;">'+data.titulo+'</h2><p>'));
+					//$('#titulo_artigo').html(data.titulo);
+				});
+			}
+		});	
+	</script>
+</div>

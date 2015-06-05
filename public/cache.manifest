@@ -1,0 +1,26 @@
+CACHE MANIFEST
+# 2010-06-18:v3
+
+#CACHE
+# Explicitly cached entries
+/
+http://libwebdes.boavontade.com/assets/application.css
+http://libwebdes.boavontade.com/assets/application.js
+
+#/assets/add2home.css
+#/assets/jplayer/blue.monday/jplayer.blue.monday.css
+#/assets/jquery.mobile.structure-1.2.0.min.css
+#/assets/jquery.mobile-1.0.1.min.css
+#assets/rdmobile-theme-d.css
+#assets/application.css
+#assets/estilo.css
+#assets/basic-jquery-slider.css
+#assets/jquery-1.6.4.min.js
+#assets/add2home.js
+#assets/application.js
+#assets/my_application.js
+#assets/swfobject.js
+#assets/jquery.jplayer.min.js
+
+NETWORK:
+*

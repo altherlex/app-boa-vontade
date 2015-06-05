@@ -1,0 +1,34 @@
+<div data-role="page" id="main">
+	<%= header_tag(:voltar=>true){"<h1>Igreja mais pr&oacute;xima</h1>"}%>
+	<div data-role="content">
+		<ul data-role="listview" data-inset="true" data-filter="false">
+			<li><a href="#automatico" rel="external">Pr&oacute;ximas a mim</a></li>
+			<li><a href="#manual" rel="external">Estado/cidade</a></li>
+		</ul>
+	</div>
+	<%=rodape%>
+</div>
+
+<!-- Manual -->
+<div data-role="page" id="manual">
+	<%= header_tag(:voltar=>true){"<h1>Estado/cidade</h1>"}%>
+	<div data-role="content"> 
+		<form method="post" action="/localizacoes/localizar">
+			<div data-role="fieldcontain">
+				<label for="dsc_localidade" class="select">Escolha sua cidade</label>
+				<%= select_tag :dsc_localidade, grouped_options_for_select(CrmIgreja.estados_agrupadas) -%>
+				<input data-ajax="false" type="submit" rel="external" value="Buscar" data-icon="search" class="ui-btn-hidden" data-theme="b">
+			</div>
+		</form>
+	</div>
+	<%=rodape%>
+</div>
+
+<!-- Automativo -->
+<div data-role="page" id="automatico">
+	<%= header_tag(:voltar=>true){"<h1>Igreja + pr&oacute;xima</h1>"}%>
+	<div data-role="content">
+		<p>Opção 1:Pr&oacute;ximas a mim</a></p>   
+	</div>
+	<%=rodape%>
+</div>

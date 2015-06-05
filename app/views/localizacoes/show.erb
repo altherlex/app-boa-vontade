@@ -1,0 +1,87 @@
+<div data-role="page" id="main">
+	<%= header_tag(:voltar=>true, :cabecalho => false){"<h1>#{@crm_igreja.dsc_localidade}</h1>"}%>
+	<div data-role="content">
+		<article><p id="status">Carregando...</p></article>
+		<script>
+			var conteudo = "<b><%=@crm_igreja.dsc_bairro-%></b><br/><i><%="#{@crm_igreja.dsc_endereco}, #{@crm_igreja.nmr_numero}"-%></i><br/><i>Tel <%=@crm_igreja.nmr_telefone-%></i>"
+
+			function success(position) {
+				var s = document.querySelector('#status');
+
+				if (s.className == 'success') {
+					// not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
+					return;
+				}
+
+				s.innerHTML = "";
+				s.className = 'success';
+
+				var mapcanvas = document.createElement('div');
+				mapcanvas.id = 'mapcanvas';
+			
+				// É recomendado que defina-se 100% para dispositivos móveis
+				/*if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) {
+					mapcanvas.style.width = '100%';
+					mapcanvas.style.height = '200px';
+				} else {*/
+					mapcanvas.style.width = '100%';
+					mapcanvas.style.height = '200px';
+				//}
+
+				document.querySelector('article').appendChild(mapcanvas);
+
+				var geocoder = new google.maps.Geocoder();
+				var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+				var myOptions = {
+					zoom: 15,
+					center: latlng,
+					mapTypeControl: false,
+					navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+
+				var address = '<%=@crm_igreja.geo_local-%>';
+				if (geocoder) {
+					geocoder.geocode( { 'address': address,language: 'PT-BR', region: 'BR'},
+					function(results, status) {
+						if (status == google.maps.GeocoderStatus.OK) {
+							map.setCenter(results[0].geometry.location);
+							var marker = new google.maps.Marker({
+								map: map, 
+								position: results[0].geometry.location,
+								title:"Religiao de Deus"
+							});
+							
+							var infowindow = new google.maps.InfoWindow({
+								content: conteudo
+							});
+							infowindow.open(map,marker);
+							google.maps.event.addListener(marker, 'click', function() {
+								infowindow.open(map,marker);
+							});						
+
+						} else {
+							alert("Geocode was not successful for the following reason: " + status);
+						}
+					});
+				}
+			}
+			
+			function error(msg) {
+			  var s = document.querySelector('#status');
+			  s.innerHTML = typeof msg == 'string' ? msg : "failed";
+			  s.className = 'fail';
+			  
+			  // console.log(arguments);
+			}
+
+			//OnLoad
+			if (navigator.geolocation) {
+			  navigator.geolocation.getCurrentPosition(success, error);
+			} else {
+			  error('not supported');
+			}
+		</script>
+	</div>
+</div>

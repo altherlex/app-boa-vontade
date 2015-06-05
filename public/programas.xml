@@ -1,0 +1,162 @@
+<boavontadetv>
+	<programas>
+		<programa valor='1'>
+			<nome>Programa Boa Vontade, com Paiva Netto</nome>
+			<descricao>
+				Exibe as atividades fraternas da LBV, que trabalha por um Brasil melhor e por uma Humanidade mais feliz, educando com Espiritualidade Ecumênica.
+				<br/>Exibição:<br/>
+				Segunda a sexta-feira, às 2h30, 9h30, 16h30 e 20h30<br/>
+				Sábado, às 2h30, 11h30, 16h30 e 21h30<br/>
+				Domingo, às 22h30, 0h30, 11h30 e 16h30 e 22h30
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/programa_boa_vontade.jpg</icone>
+		</programa>
+		<programa valor='2'>
+			<nome>O assunto é Jesus!</nome>
+			<descricao>
+				Um programa da Academia Jesus, o Cristo Ecumênico. Reúne a família e estuda temas atuais, demonstrando a extraordinária contribuição do Divino Mestre para as diversas áreas do saber espiritual-humano.
+				<br/>Exibição:<br/>
+				Segunda a sexta-feira: à 1h, às 6h e às 17h<br/>
+				Sábado:à 1h, às 6h, às 17h e às 21h<br/>
+				Domingo: à 1h, às 6h e às 17h.
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/o_assunto_e_jesus.jpg</icone>
+		</programa>		
+		<programa valor='3'>
+			<nome>Atitude Jovem</nome>
+			<descricao>
+				Espaço em que a Juventude Ecumênica Militante da LBV discute os desafios enfrentados pelos jovens, por meio de linguagens pedagógicas, artísticas e culturais, à luz da Espiritualidade Ecumênica.
+				<br/>Exibição:<br/>
+				Sexta-feira: 8h30, 19h30<br/>
+				Sábado: às 11h, às 18h30 e às 23h30<br/>
+				Domingo: à 0h, às 11h e às 16h<br/>
+				Segunda-feira: às 16h - Quinta-feira, às 21h3
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/atitude_jovem.jpg</icone>
+		</programa>	
+		<programa valor='4'>
+			<nome>Biosfera</nome>
+			<descricao>
+				A partir do lema da LBV: “A destruição da Natureza é a extinção da Raça Humana” (Paiva Netto), coloca-se em debate a sustentabilidade do planeta e o papel dos cidadãos no desenvolvimento solidário.
+				<br/>Exibição:<br/>
+				Segunda e quarta-feira: às 3h, às 9h, às 15h30 e às 20h<br/>
+				Sábado: às 5h30<br/>
+				Domingo, às 12h e às 20h
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/biosfera.jpg</icone>
+		</programa>
+		<programa valor='5'>
+			<nome>Boa Vontade Entrevista</nome>
+			<descricao>
+				Entrevistas com personalidades e estudiosos que contam suas histórias de vida e experiências profissionais, com uma visão abrangente dos temas da atualidade, nas diferentes áreas do conhecimento.
+				<br/>Exibição:<br/>
+				Terça e quinta-feira: 3h, 9h e 20h<br/>
+				Domingo: às 13h, às 15h30 e às 20h30
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/boa_vontade_entrevista.jpg</icone>
+		</programa>
+		<programa valor='6'>
+			<nome>Manhã Sertaneja</nome>
+			<descricao>
+				Entrevistas com artistas consagrados e novos talentos da cultura sertaneja, que apresentam, além das suas músicas, seus desafios e histórias de vida.
+				<br/>Exibição:<br/>
+				Sábado e domingo: 9h
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/manha_sertaneja.jpg</icone>
+		</programa>
+		<programa valor='7'>
+			<nome>Músicas que elevam</nome>
+			<descricao>
+				O programa abre espaço para a música de qualidade, erudita e popular, trazendo curiosidades sobre os diversos gêneros musicais, bate-papos e apresentações com artistas e convidados.
+				<br/>Exibição:<br/>
+				Sábado e domingo: 19h<br/>
+				Segunda-feira: às 21h
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/musicas_que_elevam.jpg</icone>
+		</programa>	
+		<programa valor='8'>
+			<nome>Samba & História</nome>
+			<descricao>
+				Exalta a história de um dos gêneros musicais mais brasileiros que existem: o samba. Artistas da velha guarda e da nova geração falam sobre suas vidas e carreiras, e interpretam belas composições.
+				<br/>Exibição:<br/>
+				Sábado:às 14h e às 22h<br/>
+				Domingo: às 14h e às 21h<br/>
+				Quarta-feira: às 21h
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/samba_e_historia.jpg</icone>
+		</programa>	
+		<programa valor='9'>
+			<nome>Sociedade Solidária</nome>
+			<descricao>
+				Um programa da Rede Sociedade Solidária, organizada pela LBV, que promove o diálogo entre os três setores da sociedade em prol do desenvolvimento humano e da melhoria da qualidade de vida.
+				<br/>Exibição:<br/>
+				Segunda a sexta-feira: às 3h30, às 18h30 e ás 23h30.<br/>
+				Sábado: às 20h - Domingo, às 2h30 e 12h30
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/sociedade_solidaria.jpg</icone>
+		</programa>	
+		<programa valor='10'>
+			<nome>Soldadinhos de Deus</nome>
+			<descricao>
+				Soldadinhos de Deus, forma fraterna de serem chamadas as crianças na LBV. Em alto-astral, conheça as lições ecumênicas de Jesus. Aprenda a vivenciar a Paz e a Solidariedade no dia a dia.
+				<br/>Exibição:<br/>
+				Terça, quarta e quinta-feira: às 8h, às 13h e às 19h<br/>
+				Sábado: às 8h
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/soldadinhos_de_deus.jpg</icone>
+		</programa>	
+		<programa valor='11'>
+			<nome>Vamos Falar com Deus</nome>
+			<descricao>
+				Conforta e eleva o Ser Humano por meio do ecumenismo. Educa sobre a importância da oração e a necessidade de buscar uma constante ligação com Deus, a fim de que se possa vencer os desafios cotidianos.
+				<br/>Exibição:<br/>
+				Segunda-feira a sexta-feira: à 0h, às 5h e às 12h<br/>
+				Sábado: à 0h, às 5h e às 15h<br/>
+				Domingo: à 0h, às 5h e às 12h
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/vamos_falar_com_deus.jpg</icone>
+		</programa>	
+		<programa valor='12'>
+			<nome>Vida Plena</nome>
+			<descricao>
+				Promove o bem-estar, por meio de entrevistas e atrações sobre educação, comportamento, alimentação, saúde, artesanato, entre outros temas, com o diferencial da Espiritualidade Ecumênica.
+				<br/>Exibição:<br/>
+				Segunda a sexta-feira: às 4h e às 10h<br/>
+				Sábado e domingo: às 4h
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/vida_plena.jpg</icone>
+		</programa>	
+		<programa valor='13'>
+			<nome>Viver é melhor</nome>
+			<descricao>
+				Pioneira campanha da LBV, que visa à melhoria da qualidade de vida sob um prisma mais completo do Ser Humano: corpo e Alma. Reúne especialistas da área médica em prol da educação para a saúde.
+				<br/>Exibição:<br/>
+				Segunda a sexta-feira: às 14h e às 22h
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/viver_e_melhor.jpg</icone>
+		</programa>	
+		<programa valor='14'>
+			<nome>Educação em debate</nome>
+			<descricao>
+				Debates atuais sobre educação com profissionais da área. São apresentadas ainda a Pedagogia do Afeto e a Pedagogia do Cidadão Ecumênico, que compõem linha educacional criada pelo educador Paiva Netto.
+				<br/>Exibição:<br/>
+				Sexta-feira: às 16h - Sábado, às 12h e 23h<br/>
+				Domingo: às 7h, 13h30 e 23h.
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/educacao_em_debate.jpg</icone>
+		</programa>
+		<programa valor='15'>
+			<nome>Conexão Jesus</nome>
+			<descricao>
+				No programa o telespectador encontrará a análise dos desafios pessoais e coletivos de uma maneira prática e \"conectada\", portanto, interativa. Temas do cotidiano serão abordados todas as semanas e a opinião da audiência é vital no sucesso do programa. O público em geral tem espaço garantido para o desenvolvimento destas reflexões. 
+				<br/>Exibição:<br/> 
+				quarta-feira, às 21h;<br/>
+				sexta-feira, às 21h30; <br/>
+				sábado, às 5h30, às 13h e às 20h; <br/>
+				domingo, às 5h30 e às 13h30h e <br/>
+				terça-feira, às 16h e às 21h
+			</descricao>
+			<icone>icons_programas_boa_vontade_tv/conexao_jesus.jpg</icone>
+		</programa>					
+	</programas>
+</boavontadetv>

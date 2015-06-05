@@ -1,0 +1,138 @@
+<div data-role="page" id="ouvir" data-title="Ouvir" data-theme="d" data-menu-active='nav_ouvir'>
+	<div data-role="content">
+		<div data-role="header" role="banner" data-theme="x">
+			<h1 class="ui-title" tabindex="0" role="heading" aria-level="1">
+				<%= image_tag 'profile/logo_srbv.png'%>
+			</h1>
+		</div>	
+	<!--		
+		<span class='st_fbrec_vcount' displayText='Facebook Recommend'></span>
+		<span class='st_twitter_vcount' displayText='Tweet'></span>
+		<span class='st_plusone_vcount' displayText='Google +1'></span>		
+	-->
+		<%=image_tag 'fb_ouvindo_srbv.png', :onclick=>"fb_check_ouvindo();" -%>
+		<div class='ui-body ui-body-d ui-btn-up-d ui-corner-all'>
+			<div class='display_ouvir' style='padding: 4px 0 11px;'>
+				<h2 style='text-align:center;font-size: 20px;'>Super RBV</h2>
+				<p id='rotulo_estacao_radio' class='subtitle' style='text-align:center;font-size: 15px;'>São Paulo<i>1230AM</i></p>
+				<!--
+				<div class="fb-like" data-href="http://app.boavontade.com" data-send="true" data-width="450" data-show-faces="true"></div>
+				-->
+				<!--
+					<a href="https://www.facebook.com/dialog/feed?app_id=458358780877780&link=https://app.boavontade.com&picture=http://app.boavontade.com/images/logo.png&name=AppBoaVontade&description=Acompanhe%20a%20SuperRBV%20e%20a%20BoaVontadeTV%20em%20qualquer%20lugar%20com%20AppBoaVontade&redirect_uri=https://mighty-lowlands-6381.herokuapp.com/">
+						<div style='background-color: yellow;height: 15px;width: 15px;'></div>
+					</a>
+				-->
+			</div>
+			<%= new_jplayer_tag({:id=>'radio1', :titulo => 'SRBV SP 1230AM', :link => 'http://servidor1.crossdigital.com.br:8058/;stream.nsv&type=mp3'}) %>
+		</div>
+		<ul data-role="listview" data-inset="true" data-filter="false" data-theme="d" class='lista_radios'>
+			<li>
+				<%= radio_body({:idC=> 'x', :id=>'radio1', :titulo => '<h3>SP 1230AM</h3>', :link => 'http://servidor1.crossdigital.com.br:8058/;stream.nsv&type=mp3',:titulo_resumido => '<subtitle>São Paulo 1230AM</subtitle>' }) %>
+			</li>
+			<li>
+				<%= radio_body({:idC=> '439', :id=>'radio2', :titulo => '<h3>Brasil 940AM</h3>', :link => 'http://servidor1.crossdigital.com.br:8048/;stream.nsv&type=mp3',:titulo_resumido => '<subtitle>Brasil 940AM</subtitle>'}) %>
+			</li>
+			<li>
+				<%= radio_body({:idC=> 'x', :id=>'radio3', :titulo => '<h3>Brasília 1210AM</h3>', :link => 'http://servidor1.crossdigital.com.br:8036/;stream.nsv&type=mp3',:titulo_resumido => '<subtitle>Brasília 1210AM</subtitle>'}) %>
+			</li>
+			<li>
+				<%= radio_body({:idC=> 'x', :id=>'radio4', :titulo => '<h3>Cristal/BA 1350AM</h3>', :link => 'http://servidor1.crossdigital.com.br:8062/;stream.nsv&type=mp3',:titulo_resumido => '<subtitle>Cristal/BA 1350AM</subtitle>'}) %>
+			</li>
+			<li>
+				<%= radio_body({:idC=> '264', :id=>'radio5', :titulo => '<h3>Porto Alegre 1300AM</h3>', :link => 'http://servidor28.crossdigital.com.br:8118/;stream.nsv&type=mp3',:titulo_resumido => '<subtitle>Porto Alegre 1300AM</subtitle>'}) %>
+			</li>
+			<li>
+				<%= radio_body({:idC=> '265', :id=>'radio6', :titulo => '<h3>Sert&atilde;ozinho/SP 1230AM</h3>', :link => 'http://servidor5.crossdigital.com.br:8118/;stream.nsv&type=mp3',:titulo_resumido => '<subtitle>Sert&atilde;ozinho/SP 1230AM</subtitle>'}) %>
+			</li>			
+		</ul>		
+	</div>
+</div>
+<div data-role="page" id="programacaoradio" data-title="Programação"  data-theme="d">
+	<%= header_tag(:voltar=>'#ouvir'){"<h1>Programa&ccedil;&atilde;o</h1>"} %>
+	<div data-role="content">
+		<ul data-role="listview" data-inset="true" data-filter="false">
+			<li><a href="#R1" rel="external">Domingo</a></li>
+			<li><a href="#R2" rel="external">Segunda a sexta-feira</a></li>
+			<li><a href="#R3" rel="external">S&aacute;bado</a></li>
+		</ul>		
+	</div>
+</div>
+
+<%= corpo_programacao({:prefix=>'R', :id=>1, :titulo=>'Domingo', :voltar=>'#programacaoradio'}){
+%{
+	<li id="R06h00" class='par'><span>00h às 06h - Vamos Falar com Deus</span></li>
+	<li id="R01h00" class=''><span>06h às 07h - Humanidades</span></li>
+	<li id="R01h00" class='par'><span>07h às 08h - Educação em Debate</span></li>
+	<li id="R01h00" class=''><span>08h às 09h - Sociedade Solidária</span></li>
+	<li id="R01h00" class='par'><span>09h às 10h - Melhor Idade</span></li>
+	<li id="R03h00" class=''><span>10h às 13h - Show de Domingo</span></li>
+	<li id="R01h00" class='par'><span>13h às 14h - Soldadinhos de Deus</span></li>
+	<li id="R01h00" class=''><span>14h às 15h - Samba e História</span></li>
+	<li id="R01h00" class='par'><span>15h às 16h - Boa Vontade Entrevista</span></li>
+	<li id="R01h00" class=''><span>16h às 17h - Humanidades</span></li>
+	<li id="R02h00" class='par'><span>17h às 19h - Jornada Esportiva</span></li>
+	<li id="R01h00" class=''><span>19h às 20h - Resumo dos Acontecimentos</span></li>
+	<li id="R01h00" class='par'><span>20h às 21h - Samba e História</span></li>
+	<li id="R03h00" class=''><span>21h às 00h - Cortando Estradas</span></li>
+}
+} %>
+
+<%= corpo_programacao({:prefix=>'R',:id=>2, :titulo=>'Segunda a sexta-feira', :voltar=>'#programacaoradio'}){
+%{
+	<li id="R06h00" class='par'><span>00h às 06h - Vamos Falar com Deus</span></li>
+	<li id="R01h00" class=''><span>06h às 07h - Panorama Nacional</span></li>
+	<li id="R01h00" class='par'><span>07h às 08h - O Poder da Fé Realizante</span></li>
+	<li id="R04h00" class=''><span>08h às 12h - Comando da Esperança</span></li>
+	<li id="R01h00" class='par'><span>12h05 às 13h - Momento Esportivo</span></li>
+	<li id="R03h00" class=''><span>13h às 16h - Viver é Melhor</span></li>
+	<li id="R03h00" class='par'><span>16h às 19h - Programa Paiva Netto</span></li>
+	<li id="R01h00" class=''><span>19h às 20h - Horário politico</span></li>
+	<li id="R01h00" class='par'><span>20h às 21h - Panorama Nacional</span></li>
+	<li id="R03h00" class=''><span>21h às 00h - Cortando Estradas </span></li>
+}
+} %>
+
+<%= corpo_programacao({:prefix=>'R',:id=>3, :titulo=>'S&aacute;bado', :voltar=>'#programacaoradio'}){
+%{
+	<li id="R06h00" class='par'><span>00h às 06h - Vamos Falar com Deus</span></li>
+	<li id="R01h00" class=''><span>06h às 07h - Resumo dos Acontecimentos</span></li>
+	<li id="R01h00" class='par'><span>07h às 08h - O Poder da Fé Realizante</span></li>
+	<li id="R03h00" class=''><span>08h às 11h - Comando da Esperança</span></li>
+	<li id="R01h00" class='par'><span>11h às 12h - Bolo com Pudim</span></li>
+	<li id="R01h00" class=''><span>12h às 13h - Educação em Debate</span></li>
+	<li id="R03h30" class='par'><span>13h às 16h30 - Rebeldes de Jesus</span></li>
+	<li id="R02h30" class=''><span>16h30 às 19h - Cruzada do Novo Mandamento de Jesus — Reunião da Comunhão com Deus</span></li>
+	<li id="R01h00" class='par'><span>19h às 20h - Música como se faz</span></li>
+	<li id="R01h00" class=''><span>20h às 21h - Panorama Semanal</span></li>
+	<li id="R03h00" class='par'><span>21h às 00h - Cortando Estradas</span></li>
+}
+} %>
+
+<div data-role="page" id="outros" data-title="Interação" data-theme="d">
+	<%#= header_tag(:voltar=>true){"<h1>Fale conosco</h1>"}%>
+	<div data-role="header" role="banner" data-theme="x">
+		<h1 class="ui-title" tabindex="0" role="heading" aria-level="1">
+			<%= image_tag 'profile/logo_srbv.png', :style=>'width: 157px;'%>
+		</h1>
+	</div>	
+	<div id='notificacao'></div>
+	<div data-role="content" data-theme="white" class='ui-corner-all'>
+		<div class='ui-body-head-white'><h2>Envie sua mensagem para a Super RBV</h2></div>
+		<!--
+		<p>Enviando para altherlg@lbv.org.br</p>
+		-->
+		<form id='frm_contato' style='display: inline;'>
+			<%#= select_tag(:assunto, options_from_collection_for_select(GlbDominio.carregar_lst_valor('ENTRE_CONTATO','TPO_INTERACAO'), :dsc_valor, :dsc_conteudo), {:style=>'width:99%;'} ) -%>
+			<%= text_field_tag :nome, '', {:class=>'com_label', :placeholder=>"nome*", :style=>'width: 99%;'} -%>
+			<%= text_field_tag :email, '', {:class=>'com_label', :type=>'email', :placeholder=>"e-mail*", :style=>'width: 99%;'} -%>
+			<%= text_field_tag :cidade, '', {:class=>'com_label', :placeholder=>"cidade/uf", :style=>'width: 99%;'} -%>
+			<%= text_field_tag :telefone, '', {:class=>'com_label', :placeholder=>"(DDD)telefone", :style=>'width: 99%;'} -%>
+			<%= text_area_tag :descricao, '', {:class=>'com_label', :placeholder=>"escreva aqui sua mensagem*", :style=>'width: 99%;margin-top: 6px;'} -%>
+			<a data-role="button" data-theme="a" onclick="fn_enviar_contato();">Enviar</a>
+		</form>
+	</div>
+	<div class='ui-body-feet-white'>
+		<p>Fique tranquilo! Seus dados estão em sigilo<p>
+	</div>
+</div>

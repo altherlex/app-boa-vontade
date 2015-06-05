@@ -1,0 +1,36 @@
+<div data-role="page" id=<%=params[:id]-%> data-title=<%=params[:titulo]-%> data-theme="d">
+	<%= header_tag(:voltar=>true, :cabecalho=>false){"<h1>#{params[:titulo]}</h1>"}%>
+	<div data-role="content">
+		<%ul_id = "lst_video_#{params[:id]}" %>
+		<ul id=<%=ul_id-%> data-role="listview" data-filter="true"/>
+		<script>
+		$('#<%=params[:id]-%>').live('pageshow', function(){
+		 	$('<%=params[:id]-%> [data-role="content"]').html('<ul id=<%=ul_id-%> data-role="listview" data-filter="true"/>');
+		 	$("#<%=ul_id%>").listview();
+
+			$('#<%=params[:id]-%> input[data-type="search"]').bind("enterKey",function(e){
+				carregar_videos(<%=ul_id.inspect.html_safe-%>, <%=params[:canais].inspect.html_safe-%>, {q:$(this).val(), alt:'json', format:6, orderby:'published'});
+			});
+			/* Enter event in search field */
+			$('#<%=params[:id]-%> input[data-type="search"]').keypress(function(e) {
+				if (e.keyCode == '13'){ 
+					$(this).trigger("enterKey"); 
+				}
+				if (location.href.split('?').length >= 2){
+					$('#ver_videos_de').val('');
+				}
+			});			
+			if (location.href.split('?').length >= 2){
+				$('#<%=params[:id]-%> input[data-type="search"]').val( unescape($('#ver_videos_de').val()) ).keyup().trigger("enterKey");
+			}else{
+				carregar_videos(<%=ul_id.inspect.html_safe-%>, <%=params[:canais].inspect.html_safe-%>, {alt:'json', format:6, 'max-results':5, orderby:'published', 'start-index':1})
+			}
+			/* Ao digitar algo no campo de busca limpar o campo hidden */
+			$('#<%=params[:id]-%> input[data-type="search"]').keyup(function(e) {
+				if (location.href.split('?').length >= 2)
+					$('#ver_videos_de').val('');
+			});			
+		});
+		</script>
+	</div>
+</div>

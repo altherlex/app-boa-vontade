@@ -1,0 +1,14 @@
+<%= render :partial => "home/home.html" %>
+<%= render :partial => "home/ouvir.html" %>
+<%= render :partial => "home/assistir.html" %>
+<%= render :partial => "home/portal.html" %>
+
+<!-- Videos: Visualização do video e Instância js da tela -->
+<div data-role="page" id="lbvcultural2">
+	<%= header_tag(:voltar=>true){"<h1>Vídeo</h1>"}%>
+	<div data-role="content" class="gallery" style='overflow-x:visible;padding:0;width:100%;max-width:100%;min-width:100%;'>
+		<div class='galeria_li'>
+			<iframe id='frm_video' style='height:70%;width:100%' class='galeria_li_a' src="" frameborder="0" allowfullscreen></frame>
+		</div>
+	</div>
+</div>

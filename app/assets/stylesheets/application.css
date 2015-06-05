@@ -1,0 +1,35 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ * require_self
+ * require_tree .
+ 
+ *= require add2home
+ *= require jquery.mobile.structure-1.2.0
+ *= require jquery.mobile.theme-1.2.0
+ *  require jquery.mobile-1.0.1
+ *= require rdmobile-theme-d
+ *= require estilo
+ *  require jplayer/blue.monday/jplayer.blue.monday
+ *  require basic-jquery-slider.css
+ */
+
+/*
+font-awesome
+add2home
+jplayer/blue.monday/jplayer.blue.monday
+jquery.mobile.structure-1.2.0.min
+jquery.mobile-1.0.1.min
+rdmobile-theme-d
+application
+estilo
+basic-jquery-slider
+*/
+
