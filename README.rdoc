@@ -2,7 +2,7 @@
 
 A conversation from rails app to nodejs app.
 
-You fowlling the webapp conversion starting from rails and finished to nodejs. 
+You fowlling the webapp conversion {starting from rails}[https://github.com/altherlex/app-boa-vontade/tree/v0.1-r] and finished to nodejs. 
 
 Mainly a demo to test several technologies.
 
