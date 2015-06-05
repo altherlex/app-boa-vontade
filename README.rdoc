@@ -1,15 +1,20 @@
-== Boa Vontade WebApp
-or rails-node--jqm-demo
+== rails-node--jqm-demo
 
-Check the webapp conversion from rails to nodejs. 
-(Essentially using jQueryMobile for the mobile web user experience.)
+A conversation from rails app to nodejs app.
 
-A hybrid app to listen and watch boavontade.com
+You fowlling the webapp conversion starting from rails and finished to nodejs. 
 
 Mainly a demo to test several technologies.
 
+
+== Boa Vontade WebApp
+
+A hybrid app to listen and watch {boavontade.com}[http://www.boavontade.com]
+Essentially using jQueryMobile for the mobile web user experience.
+
+
 == Tools
 
--Rails
--Nodejs
--JqueryMobile
+*Rails
+*Nodejs
+*JqueryMobile
