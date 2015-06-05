@@ -9,12 +9,13 @@ Mainly a demo to test several technologies.
 
 == Boa Vontade WebApp
 
-A hybrid app to listen and watch {boavontade.com}[http://www.boavontade.com]
+A hybrid app to listen and watch {boavontade.com}[http://www.boavontade.com].
+
 Essentially using jQueryMobile for the mobile web user experience.
 
 
 == Tools
 
-*Rails
-*Nodejs
-*JqueryMobile
+* Rails
+* Nodejs
+* JqueryMobile
