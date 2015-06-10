@@ -1,0 +1,33 @@
+{
+  "name": "app-boa-vontade",
+  "version": "0.0.0",
+  "description": "A hybrid app to listen and watch boavontade.com.",
+  "main": "app.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/altherlex/app-boa-vontade.git"
+  },
+  "author": "Alther Alves <para.alves@gmail.com> (https://about.me/alther)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/altherlex/app-boa-vontade/issues"
+  },
+  "homepage": "https://github.com/altherlex/app-boa-vontade",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "cookie-parser": "^1.3.5",
+    "debug": "^2.2.0",
+    "express": "^4.12.4",
+    "jade": "^1.10.0",
+    "morgan": "^1.5.3",
+    "serve-favicon": "^2.2.1"
+  }
+}
